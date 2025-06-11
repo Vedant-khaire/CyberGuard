@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a192f;
+            color: #f7ebeb;
+        }
+
+        header {
+            background: linear-gradient(rgba(10, 25, 47, 10), rgba(10, 25, 47, 0.6)),
+            url('images/header-bg.jpg') center/cover;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index:100;
+        }
+
+        nav {
+            font-size: 30px;
+            max-width: 1010px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin: -200;
+            font-size: 50px;
+            color: #64ffda;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ccd6f6;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #64ffda;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #64ffda;
+            color: #0a192f;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            margin-top: 20px; 
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #64ffda;
+        }
+        .video-container iframe {
+        border-radius: 15px;
+        overflow: hidden; 
+    }
+
+        .threats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .threat-card {
+            background: #112240;
+            padding: 2rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .threat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .threat-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        .threats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px 0;
+        }
+
+        .threat-card {
+            background: #0a192f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .threat-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .threat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: #112240;
+            padding: 2rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .resource-card i {
+            font-size: 2.5rem;
+            color: #64ffda;
+            margin-bottom: 1rem;
+        }
+        .cyber-incidents {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 50px 10%;
+        }
+
+        .incident {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .incident1.reverse {
+            flex-direction: row-reverse; 
+        }
+
+        .incident-image {
+            width: 45%;
+            border-radius: 10px;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .incident-image:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .incident-info {
+            width: 50%;
+        }
+
+.practice-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #112240, #0a192f);
+    padding: 40px;
+    border-radius: 12px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.practice-list {
+    list-style: none;
+    padding: 0;
+    color: white;
+    font-size: 18px;
+}
+
+.practice-list li {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out,;
+}
+
+.practice-list li:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.practice-image img {
+    width: 700px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.practice-image:hover img {
+    transform: scale(1.1);
+}
+
+
+    .practice-image img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+
+
+        footer {
+            background: #020c1b;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: #64ffda;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #ccd6f6;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #64ffda;
+        }
+.copyright {
+    margin-top: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    text-align: center;
+    animation: moveText 25s linear infinite;
+}
+
+@keyframes moveText {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .threats-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .video-container iframe {
+        width: 95%;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .incident, .incident.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .incident-image, .incident-info {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .practice-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}   
+@media (max-width: 768px) {
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-links {
+    display: flex;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.practice-container {
+    grid-template-columns: 1fr;
+}
+
+.footer-content {
+    text-align: center;
+}
+}
+</style>
+
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">CyberGuard</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#threats">Threats</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#resources">Resources</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content" id="home">
+            <div class="hero-info">
+                <h1>Protecting Your Digital World</h1>
+                <p>Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes.</p>
+                <p>In today's digital age, cybersecurity is essential for safeguarding personal and organizational data from threats such as malware, phishing, and ransomware. By implementing robust security measures, individuals and businesses can protect their information and maintain trust with their clients.</p>
+                <a href="#video" class="cta-button">Get Protected Now</a>
+            </div>
+        </div>
+    </section>
+    <section class="cyber-incidents">
+        <div class="incident">
+            <img src="images/incident1.jpg" alt="Incident 1" class="incident-image">
+            <div class="incident-info">
+                <h2>2023 Ransomware Attack on Hospitals</h2>
+                <p>In 2023, a ransomware attack targeted multiple hospitals, encrypting patient data and demanding millions in ransom. The attack disrupted healthcare services, delaying surgeries and medical treatments.</p>
+            </div>
+        </div>
+    
+        <div class="incident reverse">
+            <div class="incident-info">
+                <h2>Major Data Breach at Tech Company</h2>
+                <p>A leading tech company suffered a data breach in 2022, exposing millions of user records, including passwords and financial data. The breach led to significant financial losses and legal action.</p>
+            </div>
+            <img src="images/incident2.webp" alt="Incident 2" class="incident-image">
+        </div>
+    
+        <div class="incident">
+            <img src="images/incident3.jpg" alt="Incident 3" class="incident-image">
+            <div class="incident-info">
+                <h2>Phishing Attack on Banking Sector</h2>
+                <p>In 2021, cybercriminals used phishing emails to steal banking credentials, leading to unauthorized transactions and financial fraud. Many customers lost thousands due to this sophisticated scam.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="video">
+        <h2 class="section-title">Watch Our Video</h2>
+        <div class="video-container">
+            <iframe width="1100" height="550" src="https://www.youtube.com/embed/88-FENio9Yw?si=Kz-iI6T0GdIMI6UM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         </div>
+    </section>
+
+    <section class="section" id="threats">
+        <h2 class="section-title">Common Cyber Threats</h2>
+        <div class="threats-grid">
+            <div class="threat-card">
+                <img src="images/threat1.webp" alt="Phishing Attack">
+                <h3>Phishing Attacks</h3>
+                <p>Deceptive attempts to obtain sensitive information through fake communications.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat2.png" alt="Malware">
+                <h3>Malware Infections</h3>
+                <p>Malicious software designed to damage or gain unauthorized access.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat3.avif" alt="Ransomware">
+                <h3>Ransomware</h3>
+                <p>Encrypts victim's data and demands payment for decryption key.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat4.jpg" alt="DDoS Attack">
+                <h3>DDoS Attacks</h3>
+                <p>Overloading a website or service with excessive traffic to disrupt operations.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat5.png" alt="SQL Injection">
+                <h3>SQL Injection</h3>
+                <p>Attackers manipulate databases through malicious SQL queries.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat6.png" alt="Zero-Day Exploit">
+                <h3>Zero-Day Exploits</h3>
+                <p>Exploiting vulnerabilities in software before they are patched.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat7.png" alt="Man-in-the-Middle">
+                <h3>Man-in-the-Middle (MITM)</h3>
+                <p>Intercepting and altering communication between two parties.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat8.png" alt="Brute Force Attack">
+                <h3>Brute Force Attacks</h3>
+                <p>Repeatedly guessing passwords to gain unauthorized access.</p>
+            </div>
+            <div class="threat-card">
+                <img src="images/threat9.jpeg" alt="IoT Attacks">
+                <h3>IoT Device Attacks</h3>
+                <p>Exploiting vulnerabilities in smart devices and connected systems.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="section" id="solutions">
+        <h2 class="section-title">Security Best Practices</h2>
+        <div class="practice-container">
+            <div class="practice-content">
+                <ul class="practice-list">
+                    <li> Use strong, unique passwords for all accounts</li>
+                    <li> Enable multi-factor authentication (MFA)</li>
+                    <li> Keep software and systems updated</li>
+                    <li> Regularly backup important data</li>
+                    <li> Educate employees about security risks</li>
+                    <li> Avoid clicking on suspicious links or attachments</li>
+                    <li> Use a VPN when connecting to public Wi-Fi</li>
+                    <li> Implement firewall and antivirus protection</li>
+                    <li> Monitor account activity for unauthorized access</li>
+                    <li> Secure IoT devices with strong authentication</li>
+                </ul>
+            </div>
+            <div class="practice-image">
+                <img src="images/best-practices.png" alt="Security Practices">
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="resources">
+        <h2 class="section-title">Learning Resources</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Cyber Security Awareness Booklet</h3>
+                <p>Download the official cybersecurity handbook for citizens provided by the Indian government.</p>
+                <a href="https://cybercrime.gov.in/pdf/Cyber%20Security%20Awareness%20Booklet%20for%20Citizens.pdf" class="cta-button" target="_blank">Download</a>
+            </div>
+            <div class="resource-card">
+                <i class="fas fa-video"></i>
+                <h3>Cyber Awareness Videos</h3>
+                <p>Watch a series of cybersecurity awareness videos curated by the Ministry of Home Affairs, India.</p>
+                <a href="https://i4c.mha.gov.in/cyber-awareness-videos.aspx" class="cta-button" target="_blank">Watch Now</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <div class="footer-content" id="contact">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: cert@cert-in.org.in</p>
+                <p>Phone: 1930 (Indian Cyber Helpline)</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="privacy.html">Privacy Policy</a></p>
+                <p><a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 CyberGuard. All rights reserved.</p>
+    </footer>    
+</body>
+</html>
